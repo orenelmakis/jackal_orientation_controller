@@ -10,10 +10,22 @@ orientationControl::orientationControl(ros::NodeHandle& nh): nh_(nh)
 
 void orientationControl::initializeParameters()
 {
-    nh_.getParam("wheelSize",wheelSize_);
-    nh_.getParam("convergeRadius",convergeRadius_);
-    nh_.getParam("convergeOrientation",convergeOrientation_);
-    nh_.getParam("controllerGain",controllerGain_);
+    if(!nh_.getParam("wheelSize",wheelSize_))
+    {
+        wheelSize_ = 0.1;
+    }
+    if(!nh_.getParam("convergeRadius",convergeRadius_))
+    {
+        convergeRadius_ = 0.1;
+    }
+    if(!nh_.getParam("convergeOrientation",convergeOrientation_))
+    {
+        convergeOrientation_ = 0.1;
+    }
+    if(!nh_.getParam("controllerGain",controllerGain_))
+    {
+        controllerGain_ = 3.0;
+    }
 
 }
 
