@@ -24,7 +24,7 @@ void orientationControl::initializeParameters()
     }
     if(!nh_.getParam("controllerGain",controllerGain_))
     {
-        controllerGain_ = 3.0;
+        controllerGain_ = 2.0;
     }
 
 }
